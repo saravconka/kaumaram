@@ -1,0 +1,11 @@
+
+/*Transcripter autoplay styles*/
+.highlight { background-color : yellow; color:red}
+
+#transcriptSrc {
+  position:relative;
+  width:100%;
+  height:100px;
+  overflow-y:scroll;
+  display:block;
+}

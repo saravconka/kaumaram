@@ -1,0 +1,12 @@
+<nav>
+	<a href="/app.html">Home</a>\ {{ articles[0].value.artifact | titleCase }}
+</nav>
+
+<article>
+	<h3 ng-show="articles">{{ getText(resources.songs) }}</h3>
+	<ol>
+		<li ng-repeat="article in articles | orderBy : 'value.number' ">
+			<a href="/article-detail/{{article.value.number}}" ng-click="selectedArticle(article)">{{ getText(article.value.title) }}</a>
+		</li>
+	</ol>
+</article>
