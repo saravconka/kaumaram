@@ -1,0 +1,24 @@
+<nav>
+	<a href="/">Home</a> \ <a ng-href="/{{ article.value.artifact }}">{{ article.value.artifact | titleCase }}</a>
+</nav>
+
+<article>   
+	<!--<h3>{{ article.value.number }} {{ getText(article.value.title) }}</h3>-->
+	<h3>
+    	<select ng-model="selectedArticle"
+    		ng-options="a.value.number + ' - ' + getText(a.value.title) for a in articles | orderBy: a.value.number:true track by a.value.number"
+    		ng-change="setSelectedArticle(selectedArticle)">
+  		</select>
+	</h3><input type="checkbox" ng-model="favourites" ng-click="markFavourite(favourites)"/>Mark Favourite
+	
+	<p ng-bind-html="getText(article.value.chantBeat)"></p>
+	<h4>{{getText(resources.song)}}</h4><input id="textAutoScroll" type="checkbox" checked="checked">{{getText(resources.autoScroll)}}</input>
+	<!--<div id="out" style="1px solid gray; width:200px; height:100px"></div> -->
+
+	<p id="transcriptSrc" ng-bind-html="getText(article.value.text)"></p>
+
+	<audio id="audioElm" src="{{ audioUrl }}" controls="" width="100%">
+	  <div class="videoError">HTML5 is not supported</div>
+	</audio>
+
+</article>

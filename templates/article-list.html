@@ -1,0 +1,14 @@
+<nav>
+	<a href="/">Home</a>\ {{ articles[0].value.artifact | titleCase }}
+</nav>
+
+<article>
+	<h3 ng-show="articles">{{ getText(resources.songs) }}</h3>
+	<input style="width:100%" type="text" ng-model="searchArticle" ng-keyup="filterArticle()" placeholder="Start typing to search an article"/>
+	<ol>
+		<li ng-repeat="article in articles | filter: searchArticle | orderBy : 'value.number'">
+			<!--<a href="/article-detail/{{article.value.number}}" ng-click="selectedArticle(article)">{{ getText(article.value.title) }}</a>-->
+			<a href="/{{article.value.artifact.toLowerCase()}}/{{article.value.number}}" ng-click="selectedArticle(article)">{{ getText(article.value.title) }}</a>
+		</li>
+	</ol>
+</article>

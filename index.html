@@ -1,0 +1,36 @@
+<html !DOCTYPE>
+    <head>
+        <title>eKauramam</title>
+        <link rel="stylesheet" href="css/main.css" />
+        <script type="text/javascript" src="js/angular/angular.js"></script>
+        <script type="text/javascript" src="js/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="js/angular-cookies/angular-cookies.js"></script>
+        <script type="text/javascript" src="js/angular-sanitize/angular-sanitize.js"></script>
+        <!-- <script type="text/javascript" src="js/firebase/firebase.js"></script> -->
+        <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/clientapp.js"></script>
+        <!-- <script type="text/javascript" src="js/transcripter.js"></script> -->
+
+        <!--To render Tamil unicode fonts set below meta-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+        <!--Set viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
+    </head>
+    <body ng-app="kaumaram">
+        <header id="krm-header" ng-controller="RootController">
+            <aside id="krm-lang-pref">
+            <label>{{ getText(resources.langPreference) }}</label>
+            <select id="langPreference"
+                ng-options="key as value for (key, value) in locale.langList"
+                ng-model="locale.selectedLang"
+                ng-change="updateLangPreference()">
+            </select>
+            </aside>
+        </header>
+        
+        <section id="krm-section" ng-view></section>
+        
+        <base href="/app.html" />
+    </body>
+</html>

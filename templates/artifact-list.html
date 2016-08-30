@@ -1,0 +1,11 @@
+<h3 ng-show="artifacts">{{ resources.artifacts | translate }}</h3><a href="/favourites">Show my favourties</a>
+
+<article>
+	<ol>
+		<li ng-repeat="artifact in artifacts">
+			<a href="/{{artifact.key}}">{{artifact.value.name | translate }}</a>
+			<!--<a href="/articles/{{artifact.key}}">{{artifact.value.name | translate }}</a>-->
+			&nbsp;&nbsp;&nbsp;<label style="font-size:smaller">({{resources.author | translate }} : {{ artifact.value.author | translate }})</label>
+		</li>
+	</ol>
+</article>
